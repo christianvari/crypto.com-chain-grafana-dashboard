@@ -1,12 +1,11 @@
-# Cosmos Chains Dashboard
+# Crypto.com Chain Grafana Dashboard
 
-A [Grafana](https://grafana.com/) dashboard compatible with all the [cosmos-sdk](https://github.com/cosmos/cosmos-sdk) and [tendermint](https://github.com/tendermint/tendermint) based blockchains.
+A [Grafana](https://grafana.com/) dashboard compatible with crypto.com chain
 
 ## Preview
 
-![1](imgs/cosmos-overview.jpg)
-![2](imgs/irishub-overview.jpg)
-![3](imgs/instance-overview.jpg)
+![1](imgs/photo1.png)
+![2](imgs/photo2.png)
 
 ## How To
 
@@ -25,7 +24,7 @@ After restarting your node, you should be able to access the tendermint metrics(
 Append a `job` under the `scrape_configs` of your prometheus.yml
 
 ```yaml
-      - job_name: irishub
+      - job_name: cryptocom
         static_configs:
         - targets: ['<Validator-IP>:26660']
           labels:
@@ -45,7 +44,5 @@ curl -X POST http://<PROMETHEUS-IP>:9090/-/reload
 ```
 
 ### Import Grafana Dashboard
-
-Copy and paste the [Grafana Dashboard ID](https://grafana.com/grafana/dashboards/11036) `11036` OR content of [cosmos-dashboard.json](cosmos-dashboard.json), click on `Load` to complete importing.
 
 ![import](imgs/import.jpg)
