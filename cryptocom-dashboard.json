@@ -17,7 +17,7 @@
     "gnetId": 11036,
     "graphTooltip": 0,
     "id": 3,
-    "iteration": 1611351574131,
+    "iteration": 1611410955144,
     "links": [],
     "panels": [
         {
@@ -787,8 +787,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "title": "instance overview: $instance",
@@ -859,8 +859,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "targets": [
@@ -942,8 +942,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "targets": [
@@ -1026,8 +1026,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "targets": [
@@ -1103,8 +1103,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "targets": [
@@ -1194,8 +1194,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "targets": [
@@ -1273,8 +1273,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "targets": [
@@ -1346,8 +1346,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "targets": [
@@ -1415,8 +1415,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "targets": [
@@ -1433,6 +1433,511 @@
             "timeShift": null,
             "title": "Recheck Times",
             "type": "stat"
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "decimals": 3,
+            "description": "Disk space used of all filesystems mounted",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 4,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 7,
+                "w": 8,
+                "x": 0,
+                "y": 22
+            },
+            "height": "",
+            "hiddenSeries": false,
+            "id": 87,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "sort": "current",
+                "sortDesc": false,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "maxPerRow": 6,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.7",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "scopedVars": {
+                "instance": {
+                    "selected": true,
+                    "text": "sentry-0",
+                    "value": "sentry-0"
+                }
+            },
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$instance\",job=\"cryptocom\",device!~'rootfs'} * 100) / node_filesystem_size_bytes{instance=\"$instance\",job=\"cryptocom\",device!~'rootfs'})",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{mountpoint}}",
+                    "refId": "A",
+                    "step": 240
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Disk Space Used Basic",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "percent",
+                    "label": null,
+                    "logBase": 1,
+                    "max": "100",
+                    "min": "0",
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {
+                "Busy": "#EAB839",
+                "Busy Iowait": "#890F02",
+                "Busy other": "#1F78C1",
+                "Idle": "#052B51",
+                "Idle - Waiting for something to happen": "#052B51",
+                "guest": "#9AC48A",
+                "idle": "#052B51",
+                "iowait": "#EAB839",
+                "irq": "#BF1B00",
+                "nice": "#C15C17",
+                "softirq": "#E24D42",
+                "steal": "#FCE2DE",
+                "system": "#508642",
+                "user": "#5195CE"
+            },
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "decimals": 2,
+            "description": "Basic CPU info",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 4,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 7,
+                "w": 8,
+                "x": 8,
+                "y": 22
+            },
+            "hiddenSeries": false,
+            "id": 89,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "sideWidth": 250,
+                "sort": null,
+                "sortDesc": null,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "maxPerRow": 6,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": true,
+            "pluginVersion": "7.3.7",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "scopedVars": {
+                "instance": {
+                    "selected": true,
+                    "text": "sentry-0",
+                    "value": "sentry-0"
+                }
+            },
+            "seriesOverrides": [
+                {
+                    "alias": "Busy Iowait",
+                    "color": "#890F02"
+                },
+                {
+                    "alias": "Idle",
+                    "color": "#7EB26D"
+                },
+                {
+                    "alias": "Busy System",
+                    "color": "#EAB839"
+                },
+                {
+                    "alias": "Busy User",
+                    "color": "#0A437C"
+                },
+                {
+                    "alias": "Busy Other",
+                    "color": "#6D1F62"
+                }
+            ],
+            "spaceLength": 10,
+            "stack": true,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=\"system\",instance=\"$instance\",job=\"cryptocom\"}[5m])) * 100",
+                    "format": "time_series",
+                    "hide": false,
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "Busy System",
+                    "refId": "A",
+                    "step": 240
+                },
+                {
+                    "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='user',instance=\"$instance\",job=\"cryptocom\"}[5m])) * 100",
+                    "format": "time_series",
+                    "hide": false,
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "Busy User",
+                    "refId": "B",
+                    "step": 240
+                },
+                {
+                    "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='iowait',instance=\"$instance\",job=\"cryptocom\"}[5m])) * 100",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "Busy Iowait",
+                    "refId": "C",
+                    "step": 240
+                },
+                {
+                    "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=~\".*irq\",instance=\"$instance\",job=\"cryptocom\"}[5m])) * 100",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "Busy IRQs",
+                    "refId": "D",
+                    "step": 240
+                },
+                {
+                    "expr": "sum (irate(node_cpu_seconds_total{mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq',instance=\"$instance\",job=\"cryptocom\"}[5m])) * 100",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "Busy Other",
+                    "refId": "E",
+                    "step": 240
+                },
+                {
+                    "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=\"$instance\",job=\"cryptocom\"}[5m])) * 100",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "Idle",
+                    "refId": "F",
+                    "step": 240
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "CPU Basic",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "short",
+                    "label": "",
+                    "logBase": 1,
+                    "max": "100",
+                    "min": "0",
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": false
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {
+                "Apps": "#629E51",
+                "Buffers": "#614D93",
+                "Cache": "#6D1F62",
+                "Cached": "#511749",
+                "Committed": "#508642",
+                "Free": "#0A437C",
+                "Hardware Corrupted - Amount of RAM that the kernel identified as corrupted / not working": "#CFFAFF",
+                "Inactive": "#584477",
+                "PageTables": "#0A50A1",
+                "Page_Tables": "#0A50A1",
+                "RAM_Free": "#E0F9D7",
+                "SWAP Used": "#BF1B00",
+                "Slab": "#806EB7",
+                "Slab_Cache": "#E0752D",
+                "Swap": "#BF1B00",
+                "Swap Used": "#BF1B00",
+                "Swap_Cache": "#C15C17",
+                "Swap_Free": "#2F575E",
+                "Unused": "#EAB839"
+            },
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "decimals": 2,
+            "description": "Basic memory usage",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 4,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 7,
+                "w": 8,
+                "x": 16,
+                "y": 22
+            },
+            "hiddenSeries": false,
+            "id": 91,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "sideWidth": 350,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "maxPerRow": 6,
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.7",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "scopedVars": {
+                "instance": {
+                    "selected": true,
+                    "text": "sentry-0",
+                    "value": "sentry-0"
+                }
+            },
+            "seriesOverrides": [
+                {
+                    "alias": "RAM Total",
+                    "color": "#E0F9D7",
+                    "fill": 0,
+                    "stack": false
+                },
+                {
+                    "alias": "RAM Cache + Buffer",
+                    "color": "#052B51"
+                },
+                {
+                    "alias": "RAM Free",
+                    "color": "#7EB26D"
+                },
+                {
+                    "alias": "Avaliable",
+                    "color": "#DEDAF7",
+                    "fill": 0,
+                    "stack": false
+                }
+            ],
+            "spaceLength": 10,
+            "stack": true,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"cryptocom\"}",
+                    "format": "time_series",
+                    "hide": false,
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "RAM Total",
+                    "refId": "A",
+                    "step": 240
+                },
+                {
+                    "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"cryptocom\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"cryptocom\"} - (node_memory_Cached_bytes{instance=\"$instance\",job=\"cryptocom\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"cryptocom\"})",
+                    "format": "time_series",
+                    "hide": false,
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "RAM Used",
+                    "refId": "B",
+                    "step": 240
+                },
+                {
+                    "expr": "node_memory_Cached_bytes{instance=\"$instance\",job=\"cryptocom\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"cryptocom\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "RAM Cache + Buffer",
+                    "refId": "C",
+                    "step": 240
+                },
+                {
+                    "expr": "node_memory_MemFree_bytes{instance=\"$instance\",job=\"cryptocom\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "RAM Free",
+                    "refId": "D",
+                    "step": 240
+                },
+                {
+                    "expr": "(node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"cryptocom\"} - node_memory_SwapFree_bytes{instance=\"$instance\",job=\"cryptocom\"})",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "SWAP Used",
+                    "refId": "E",
+                    "step": 240
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Memory Basic",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "bytes",
+                    "label": "",
+                    "logBase": 1,
+                    "max": null,
+                    "min": "0",
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": false
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         },
         {
             "aliasColors": {},
@@ -1453,7 +1958,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 0,
-                "y": 22
+                "y": 29
             },
             "hiddenSeries": false,
             "id": 59,
@@ -1482,8 +1987,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "seriesOverrides": [],
@@ -1559,7 +2064,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 12,
-                "y": 22
+                "y": 29
             },
             "hiddenSeries": false,
             "id": 58,
@@ -1588,8 +2093,8 @@
             "scopedVars": {
                 "instance": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 }
             },
             "seriesOverrides": [],
@@ -1653,7 +2158,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 93
+                "y": 76
             },
             "id": 74,
             "panels": [],
@@ -1687,7 +2192,7 @@
                 "h": 4,
                 "w": 6,
                 "x": 0,
-                "y": 94
+                "y": 77
             },
             "hideTimeOverride": false,
             "id": 4,
@@ -1751,7 +2256,7 @@
                 "h": 4,
                 "w": 6,
                 "x": 6,
-                "y": 94
+                "y": 77
             },
             "hideTimeOverride": false,
             "id": 40,
@@ -1809,7 +2314,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 12,
-                "y": 94
+                "y": 77
             },
             "hiddenSeries": false,
             "hideTimeOverride": false,
@@ -1933,7 +2438,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 0,
-                "y": 98
+                "y": 81
             },
             "hiddenSeries": false,
             "hideTimeOverride": false,
@@ -2057,7 +2562,7 @@
                 "h": 5,
                 "w": 12,
                 "x": 12,
-                "y": 103
+                "y": 86
             },
             "hiddenSeries": false,
             "hideTimeOverride": false,
@@ -2164,7 +2669,7 @@
                 "h": 5,
                 "w": 12,
                 "x": 0,
-                "y": 107
+                "y": 90
             },
             "hiddenSeries": false,
             "hideTimeOverride": false,
@@ -2258,7 +2763,7 @@
         "list": [
             {
                 "current": {
-                    "selected": false,
+                    "selected": true,
                     "text": "Prometheus",
                     "value": "Prometheus"
                 },
@@ -2270,6 +2775,7 @@
                 "name": "DS",
                 "options": [],
                 "query": "prometheus",
+                "queryValue": "",
                 "refresh": 1,
                 "regex": "",
                 "skipUrlSync": false,
@@ -2306,8 +2812,8 @@
                 "allValue": "",
                 "current": {
                     "selected": true,
-                    "text": "validator",
-                    "value": "validator"
+                    "text": "sentry-0",
+                    "value": "sentry-0"
                 },
                 "datasource": "$DS",
                 "definition": "label_values(tendermint_consensus_height{chain_id=\"$chain_id\"}, instance)",
@@ -2353,5 +2859,5 @@
     "timezone": "",
     "title": "Crypto.com Chain Dashboard",
     "uid": "UJyurCTWz",
-    "version": 28
+    "version": 30
 }
