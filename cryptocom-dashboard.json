@@ -17,7 +17,7 @@
     "gnetId": 11036,
     "graphTooltip": 0,
     "id": 3,
-    "iteration": 1611410955144,
+    "iteration": 1612017428674,
     "links": [],
     "panels": [
         {
@@ -149,7 +149,7 @@
             "pluginVersion": "7.3.7",
             "targets": [
                 {
-                    "expr": "tendermint_consensus_height{chain_id=\"crossfire\", instance=\"validator\"} - on()  tendermint_consensus_validator_last_signed_height{chain_id=\"crossfire\", instance=\"validator\"}",
+                    "expr": "tendermint_consensus_height{chain_id=\"crossfire\", instance=\"validator\"} - on()  tendermint_consensus_validator_last_signed_height{chain_id=\"crossfire\", instance=\"validator\"} -1",
                     "format": "time_series",
                     "hide": false,
                     "instant": true,
@@ -374,13 +374,14 @@
             "id": 72,
             "interval": "",
             "legend": {
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
-                "max": false,
-                "min": false,
+                "max": true,
+                "min": true,
                 "show": true,
                 "total": false,
-                "values": false
+                "values": true
             },
             "lines": true,
             "linewidth": 1,
@@ -402,7 +403,7 @@
                     "expr": "tendermint_consensus_validator_power{chain_id=\"crossfire\", instance=\"validator\"}",
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "",
+                    "legendFormat": "Voting power",
                     "refId": "A"
                 }
             ],
@@ -491,6 +492,7 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "Prometheus",
+            "decimals": null,
             "description": "",
             "fieldConfig": {
                 "defaults": {
@@ -528,13 +530,17 @@
             "id": 76,
             "interval": "1m",
             "legend": {
-                "avg": false,
+                "alignAsTable": true,
+                "avg": true,
                 "current": false,
-                "max": false,
-                "min": false,
+                "hideEmpty": false,
+                "hideZero": false,
+                "max": true,
+                "min": true,
+                "rightSide": false,
                 "show": true,
                 "total": false,
-                "values": false
+                "values": true
             },
             "lines": true,
             "linewidth": 1,
@@ -556,7 +562,7 @@
                     "expr": "increase(tendermint_consensus_validator_missed_blocks{chain_id=\"crossfire\", instance=\"validator\"}[1h])",
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "",
+                    "legendFormat": "Missed",
                     "refId": "A"
                 }
             ],
@@ -636,7 +642,7 @@
                 "frequency": "5m",
                 "handler": 1,
                 "name": "Last sign delay alert",
-                "noDataState": "no_data",
+                "noDataState": "alerting",
                 "notifications": []
             },
             "aliasColors": {},
@@ -686,13 +692,14 @@
             "id": 77,
             "interval": null,
             "legend": {
-                "avg": false,
+                "alignAsTable": true,
+                "avg": true,
                 "current": false,
-                "max": false,
-                "min": false,
+                "max": true,
+                "min": true,
                 "show": true,
                 "total": false,
-                "values": false
+                "values": true
             },
             "lines": true,
             "linewidth": 1,
@@ -713,13 +720,13 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "tendermint_consensus_height{chain_id=\"crossfire\", instance=\"validator\"} - on()  tendermint_consensus_validator_last_signed_height{chain_id=\"crossfire\", instance=\"validator\"}",
+                    "expr": "tendermint_consensus_height{chain_id=\"crossfire\", instance=\"validator\"} - on() tendermint_consensus_validator_last_signed_height{chain_id=\"crossfire\", instance=\"validator\"} - 1",
                     "format": "time_series",
                     "hide": false,
                     "instant": false,
                     "interval": "30s",
                     "intervalFactor": 1,
-                    "legendFormat": "",
+                    "legendFormat": "Sign delay",
                     "refId": "A"
                 }
             ],
@@ -1238,11 +1245,11 @@
                             },
                             {
                                 "color": "#ef843c",
-                                "value": 10
+                                "value": 12000
                             },
                             {
                                 "color": "#e24d42",
-                                "value": 20
+                                "value": 18000
                             }
                         ]
                     },
@@ -1289,7 +1296,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Unconfirmed Transactions",
+            "title": "Mempool",
             "type": "gauge"
         },
         {
@@ -1940,225 +1947,13 @@
             }
         },
         {
-            "aliasColors": {},
-            "bars": true,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$DS",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "links": []
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 0,
-            "gridPos": {
-                "h": 9,
-                "w": 12,
-                "x": 0,
-                "y": 29
-            },
-            "hiddenSeries": false,
-            "id": 59,
-            "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": false,
-                "show": false,
-                "total": false,
-                "values": false
-            },
-            "lines": false,
-            "linewidth": 1,
-            "links": [],
-            "nullPointMode": "null",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.3.7",
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "scopedVars": {
-                "instance": {
-                    "selected": true,
-                    "text": "sentry-0",
-                    "value": "sentry-0"
-                }
-            },
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "tendermint_p2p_peer_receive_bytes_total{chain_id=\"$chain_id\", instance=\"$instance\"}",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{peer_id}}",
-                    "refId": "A"
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Total Network Input",
-            "tooltip": {
-                "shared": false,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "series",
-                "name": null,
-                "show": false,
-                "values": ["current"]
-            },
-            "yaxes": [
-                {
-                    "format": "bytes",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                },
-                {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": false
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": true,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$DS",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "links": []
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 0,
-            "gridPos": {
-                "h": 9,
-                "w": 12,
-                "x": 12,
-                "y": 29
-            },
-            "hiddenSeries": false,
-            "id": 58,
-            "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": false,
-                "show": false,
-                "total": false,
-                "values": false
-            },
-            "lines": false,
-            "linewidth": 1,
-            "links": [],
-            "nullPointMode": "null",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.3.7",
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "scopedVars": {
-                "instance": {
-                    "selected": true,
-                    "text": "sentry-0",
-                    "value": "sentry-0"
-                }
-            },
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "tendermint_p2p_peer_send_bytes_total{chain_id=\"$chain_id\", instance=\"$instance\"}",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{peer_id}}",
-                    "refId": "A"
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Total Network Output",
-            "tooltip": {
-                "shared": false,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "series",
-                "name": null,
-                "show": false,
-                "values": ["current"]
-            },
-            "yaxes": [
-                {
-                    "format": "bytes",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                },
-                {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": false
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
             "collapsed": false,
             "datasource": null,
             "gridPos": {
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 76
+                "y": 29
             },
             "id": 74,
             "panels": [],
@@ -2192,7 +1987,7 @@
                 "h": 4,
                 "w": 6,
                 "x": 0,
-                "y": 77
+                "y": 30
             },
             "hideTimeOverride": false,
             "id": 4,
@@ -2256,7 +2051,7 @@
                 "h": 4,
                 "w": 6,
                 "x": 6,
-                "y": 77
+                "y": 30
             },
             "hideTimeOverride": false,
             "id": 40,
@@ -2314,7 +2109,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 12,
-                "y": 77
+                "y": 30
             },
             "hiddenSeries": false,
             "hideTimeOverride": false,
@@ -2438,7 +2233,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 0,
-                "y": 81
+                "y": 34
             },
             "hiddenSeries": false,
             "hideTimeOverride": false,
@@ -2562,7 +2357,7 @@
                 "h": 5,
                 "w": 12,
                 "x": 12,
-                "y": 86
+                "y": 39
             },
             "hiddenSeries": false,
             "hideTimeOverride": false,
@@ -2669,7 +2464,7 @@
                 "h": 5,
                 "w": 12,
                 "x": 0,
-                "y": 90
+                "y": 43
             },
             "hiddenSeries": false,
             "hideTimeOverride": false,
@@ -2755,7 +2550,7 @@
             }
         }
     ],
-    "refresh": "1m",
+    "refresh": "5m",
     "schemaVersion": 26,
     "style": "dark",
     "tags": ["Blockchain"],
@@ -2763,7 +2558,7 @@
         "list": [
             {
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "Prometheus",
                     "value": "Prometheus"
                 },
@@ -2811,7 +2606,7 @@
             {
                 "allValue": "",
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "sentry-0",
                     "value": "sentry-0"
                 },
@@ -2859,5 +2654,5 @@
     "timezone": "",
     "title": "Crypto.com Chain Dashboard",
     "uid": "UJyurCTWz",
-    "version": 30
+    "version": 39
 }
